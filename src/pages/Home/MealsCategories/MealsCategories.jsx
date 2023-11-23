@@ -18,10 +18,10 @@ const MealsCategories = () => {
         <div className='max-w-[380px] md:max-w-3xl lg:max-w-6xl mx-auto my-12'>
             <Tabs defaultIndex={tabIndex} onSelect={(index) => setTsbIndex(index)}>
                 <TabList className="bg-gray-300 border-2 p-6 rounded-md flex-col md:flex-row gap-5 max-w-[300px] md:max-w-3xl lg:max-w-5xl mx-auto flex justify-around ">
-                    <Tab className="btn bg-white  btn-outline hover:bg-gradient-to-tr from-[#121f4a] to-[#143192] text-xl font-semibold ">All Meals</Tab>
-                    <Tab className="btn bg-white  btn-outline hover:bg-gradient-to-tr from-[#121f4a] to-[#143192] text-xl font-semibold ">Breakfast</Tab>
-                    <Tab className="btn bg-white  btn-outline hover:bg-gradient-to-tr from-[#121f4a] to-[#143192]  text-xl font-semibold">Lunch</Tab>
-                    <Tab className="btn bg-white  btn-outline hover:bg-gradient-to-tr from-[#121f4a] to-[#143192] text-xl font-semibold ">Dinner</Tab>
+                    <Tab className="btn bg-white hover:bg-gradient-to-tr from-[#121f4a] to-[#143192] text-xl font-semibold ">All Meals</Tab>
+                    <Tab className="btn bg-white  hover:bg-gradient-to-tr from-[#121f4a] to-[#143192] text-xl font-semibold ">Breakfast</Tab>
+                    <Tab className="btn bg-white  hover:bg-gradient-to-tr from-[#121f4a] to-[#143192]  text-xl font-semibold">Lunch</Tab>
+                    <Tab className="btn bg-white  hover:bg-gradient-to-tr from-[#121f4a] to-[#143192] text-xl font-semibold ">Dinner</Tab>
                 </TabList>
                 <TabPanel className='mt-12'>
                    <MealsTab items={meals}></MealsTab>
