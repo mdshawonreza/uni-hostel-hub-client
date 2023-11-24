@@ -1,12 +1,42 @@
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Register = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { createUser } = useContext(AuthContext)
+    const [registerError, setRegisterError] = useState('')
+    const [success, setSuccess] = useState('')
+    const { register, handleSubmit,  formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        console.log(data)
+
+        const displayName = data.name
+        const email = data.email
+        const photo = data.photoURL
+        const password = data.password
+
+        setRegisterError('')
+        setSuccess('')
+
+
+        createUser(email, password, photo, displayName)
+        
+            .then(result => {
+                console.log(result)
+                swal({
+                    title: "Good job!",
+                    text: "User created successfully",
+                    icon: "success",
+                    button: "Aww yiss!",
+                });
+            })
+            .catch(error => {
+                console.error(error.message)
+                setRegisterError(error.message)
+            })
     }
 
     return (
@@ -17,13 +47,13 @@ const Register = () => {
                         <h1 className="text-5xl font-bold">Register <span className="text-orange-500">now</span>!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-[350px] md:w-[500px]  shadow-2xl bg-base-100">
-                        {/* {
+                        {
                             registerError && <p className="text-red-600 text-center text-sm mt-4 -mb-6 ">{registerError}</p>
                         }
 
                         {
                             success && <p className="text-green-600 mt-4 -mb-6 text-center text-base font-medium  ">{success}</p>
-                        } */}
+                        }
 
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
                             <div className="form-control">
@@ -57,7 +87,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text font-medium text-base">Password</span>
                                 </label>
-                                <input type="password" {...register("password", { required: true ,minLength:6 ,maxLength:20 ,pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/})} name="password" placeholder="Password" className="input input-bordered" required />
+                                <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20, pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/ })} name="password" placeholder="Password" className="input input-bordered" required />
                                 {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
                                 {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
                                 {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 20 characters</p>}

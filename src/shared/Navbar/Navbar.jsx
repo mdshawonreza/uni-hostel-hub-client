@@ -1,9 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/logo-removebg-preview.png'
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
-    // const { user, logOut } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     const [theme, setTheme] = useState("light")
     useEffect(() => {
         localStorage.setItem("theme", theme)
@@ -22,16 +23,16 @@ const Navbar = () => {
 
 
 
-    // const handleLogOut = () => {
-    //     logOut()
-    //         .then()
-    //         .catch()
-    // }
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
 
     const navLinks = <>
         <li><NavLink to="/" className="text-base  font-medium">Home</NavLink></li>
         <li><NavLink to="/login" className="text-base font-medium">Login</NavLink></li>
-        {/* <li><NavLink to="/register" className="text-base font-medium">Register</NavLink></li> */}
+        <li><NavLink to="/meals" className="text-base font-medium">Meals</NavLink></li>
         {/* {
             user && <> 
             <li><NavLink to="/addAJob" className="text-base font-medium">Add Job</NavLink></li>
@@ -78,9 +79,9 @@ const Navbar = () => {
 
             <div className="navbar-end flex y">
                 <div className=" ">
-                    {/* {
+                    {
                         user && <img className="rounded-full w-5 md:w-9 mr-1    " src={user?.photoURL} alt="" />
-                    } */}
+                    }
 
                 </div>
                 <div className="flex justify-around items-center">
@@ -96,12 +97,12 @@ const Navbar = () => {
                         <svg className="swap-off fill-current w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" /></svg>
 
                     </label>
-                    {/* {
+                    {
                         user ?
                             <button onClick={handleLogOut} className="btn btn-outline btn-xs md:btn-md btn-success text-sm md:text-base font-medium">sign out </button>
                             :
                             <Link to="/login"  > <button className="btn btn-outline btn-success btn-xs md:btn-md text-sm md:text-lg font-medium">Login </button> </Link>
-                    } */}
+                    }
                 </div>
             </div>
         </div>
