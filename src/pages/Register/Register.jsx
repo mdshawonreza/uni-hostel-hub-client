@@ -1,15 +1,16 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser ,updateUserProfile } = useContext(AuthContext)
     const [registerError, setRegisterError] = useState('')
     const [success, setSuccess] = useState('')
-    const { register, handleSubmit,  formState: { errors } } = useForm();
+    const { register, handleSubmit, reset,  formState: { errors } } = useForm();
+    const navigate=useNavigate()
 
     const onSubmit = data => {
 
@@ -26,12 +27,23 @@ const Register = () => {
         
             .then(result => {
                 console.log(result)
-                swal({
-                    title: "Good job!",
-                    text: "User created successfully",
-                    icon: "success",
-                    button: "Aww yiss!",
-                });
+
+                updateUserProfile(displayName,photo)
+                .then (()=>{
+                    console.log('user profile updated')
+                    reset()
+                    swal({
+                        title: "Good job!",
+                        text: "User created successfully",
+                        icon: "success",
+                        button: "Aww yiss!",
+                    });
+                    navigate('/')
+
+                })
+                .catch(error=>console.log(error))
+               
+               
             })
             .catch(error => {
                 console.error(error.message)
