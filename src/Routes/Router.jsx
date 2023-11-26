@@ -10,6 +10,7 @@ import Dashboard from "../layouts/Dashboard";
 import MyProfile from "../pages/Dashboard/MyProfile/MyProfile";
 import RequestedMeals from "../pages/Dashboard/RequestedMeals/RequestedMeals";
 import MyReviews from "../pages/Dashboard/MyReviews/MyReviews";
+import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 
 const Router = createBrowserRouter([
     {
@@ -41,7 +42,7 @@ const Router = createBrowserRouter([
     },
     {
       path:'dashboard',
-      element:<Dashboard></Dashboard>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
         {
           path:'myProfile',
@@ -55,6 +56,12 @@ const Router = createBrowserRouter([
           path:'myReviews',
           element:<MyReviews></MyReviews>
         },
+
+        // admin routes
+        {
+          path:'users',
+          element:<ManageUsers></ManageUsers>
+        }
       ]
     }
   ]);

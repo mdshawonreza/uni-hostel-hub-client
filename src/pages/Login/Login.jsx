@@ -4,13 +4,14 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import swal from "sweetalert";
+import SocialLogin from "../../components/socialLogin";
 
 
 const Login = () => {
     const [loginError, setLoginError] = useState('')
     const location = useLocation()
     const navigate = useNavigate()
-    const { signIn, signInWithGoogle } = useContext(AuthContext)
+    const { signIn } = useContext(AuthContext)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -37,22 +38,7 @@ const Login = () => {
 
             })
     }
-    const handleSignInWithGoogle = () => {
-        signInWithGoogle()
-            .then(result => {
-                console.log(result.user)
-                swal({
-                    title: "Good job!",
-                    text: "User logged in successfully",
-                    icon: "success",
-                    button: "Aww yiss!",
-                });
-                navigate(location?.state ? location.state : "/")
-            })
-            .catch(error => {
-                console.error(error)
-            })
-    }
+   
     return (
         <div className="bg-base-200">
             <div className="hero min-h-[780px] md:min-h-screen ">
@@ -90,12 +76,7 @@ const Login = () => {
                             </Link>
                         </p>
                         <div className="flex justify-center">
-                            <button onClick={handleSignInWithGoogle} className=" pl-6 pr-3 py-1 text-lg font-semibold border-2 border-white hover:border-orange-400  hover:border-2 rounded-md hover:text-orange-600 w-36 mb-3">
-                                <div className="flex items-center gap-2">
-                                    <FaGoogle></FaGoogle>
-                                    <p>Google</p>
-                                </div>
-                            </button>
+                           <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>

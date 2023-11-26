@@ -3,14 +3,17 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../providers/AuthProvider";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../../components/socialLogin";
 
 
 const Register = () => {
-    const { createUser ,updateUserProfile } = useContext(AuthContext)
+    const axiosPublic = useAxiosPublic()
+    const { createUser, updateUserProfile } = useContext(AuthContext)
     const [registerError, setRegisterError] = useState('')
     const [success, setSuccess] = useState('')
-    const { register, handleSubmit, reset,  formState: { errors } } = useForm();
-    const navigate=useNavigate()
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const navigate = useNavigate()
 
     const onSubmit = data => {
 
@@ -24,26 +27,36 @@ const Register = () => {
 
 
         createUser(email, password, photo, displayName)
-        
+
             .then(result => {
                 console.log(result)
 
-                updateUserProfile(displayName,photo)
-                .then (()=>{
-                    console.log('user profile updated')
-                    reset()
-                    swal({
-                        title: "Good job!",
-                        text: "User created successfully",
-                        icon: "success",
-                        button: "Aww yiss!",
-                    });
-                    navigate('/')
+                updateUserProfile(displayName, photo)
+                    .then(() => {
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                console.log('user added to the database')
+                                if (res.data.insertedId) {
+                                    reset()
+                                    swal({
+                                        title: "Good job!",
+                                        text: "User created successfully",
+                                        icon: "success",
+                                        button: "Aww yiss!",
+                                    });
+                                    navigate('/')
+                                }
+                            })
 
-                })
-                .catch(error=>console.log(error))
-               
-               
+
+                    })
+                    .catch(error => console.log(error))
+
+
             })
             .catch(error => {
                 console.error(error.message)
@@ -120,6 +133,13 @@ const Register = () => {
                             </Link>
                         </p>
 
+                        <div className="divider">
+
+                        </div>
+
+                        <div className="flex justify-center">
+                            <SocialLogin></SocialLogin>
+                        </div>
 
                     </div>
                 </div>
