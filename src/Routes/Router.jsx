@@ -14,6 +14,7 @@ import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AddMeals from "../pages/Dashboard/AddMeals/AddMeals";
 import AdminRoute from "./AdminRoute";
+import AllMeals from "../pages/Dashboard/AllMeals/AllMeals";
 
 const Router = createBrowserRouter([
     {
@@ -69,6 +70,10 @@ const Router = createBrowserRouter([
         {
           path: 'addMeals',
           element:<AdminRoute><AddMeals></AddMeals></AdminRoute>
+        },
+        {
+          path:'allMeals',
+          element:<AdminRoute><AllMeals></AllMeals></AdminRoute>
         }
       ]
     }
