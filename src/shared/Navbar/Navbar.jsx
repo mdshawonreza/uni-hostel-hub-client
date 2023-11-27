@@ -2,6 +2,7 @@ import {  NavLink } from "react-router-dom";
 import logo from '../../assets/logo-removebg-preview.png'
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { IoNotifications } from "react-icons/io5";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -31,8 +32,11 @@ const Navbar = () => {
 
     const navLinks = <>
         <li><NavLink to="/" className="text-base  font-medium">Home</NavLink></li>
-        <li><NavLink to="/login" className="text-base font-medium">Join Us</NavLink></li>
+        
         <li><NavLink to="/meals" className="text-base font-medium">Meals</NavLink></li>
+        <li><NavLink to="/upcomingMeals" className="text-base font-medium">Upcoming Meals</NavLink></li>
+        <li><NavLink to="/" className="text-base font-medium"> <IoNotifications className="text-2xl "></IoNotifications> </NavLink></li>
+        <li><NavLink to="/login" className="text-base font-medium">Join Us</NavLink></li>
         
 
     </>
