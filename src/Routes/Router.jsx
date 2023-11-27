@@ -11,11 +11,15 @@ import MyProfile from "../pages/Dashboard/MyProfile/MyProfile";
 import RequestedMeals from "../pages/Dashboard/RequestedMeals/RequestedMeals";
 import MyReviews from "../pages/Dashboard/MyReviews/MyReviews";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import AddMeals from "../pages/Dashboard/AddMeals/AddMeals";
+import AdminRoute from "./AdminRoute";
 
 const Router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
@@ -60,7 +64,11 @@ const Router = createBrowserRouter([
         // admin routes
         {
           path:'users',
-          element:<ManageUsers></ManageUsers>
+          element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+        },
+        {
+          path: 'addMeals',
+          element:<AdminRoute><AddMeals></AddMeals></AdminRoute>
         }
       ]
     }

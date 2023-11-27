@@ -4,10 +4,12 @@ import { CgProfile } from "react-icons/cg";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { MdPreview } from "react-icons/md";
 import { FaHome, FaSearch, FaUsers } from 'react-icons/fa';
+import useAdmin from '../hooks/useAdmin';
 
 
 const Dashboard = () => {
-    const isAdmin = true
+    const [isAdmin] = useAdmin()
+    console.log(isAdmin)
     return (
         <div className='flex mx-w-[380px] md:max-w-3xl lg:max-w-6xl mx-auto '>
             <div className='w-64 min-h-screen bg-orange-500'>

@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext, useState } from "react";
-import { FaGoogle } from "react-icons/fa";
+
 import swal from "sweetalert";
 import SocialLogin from "../../components/socialLogin";
 

@@ -111,11 +111,12 @@ const Navbar = () => {
                                 </div>
                                 <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-48">
                                     <li>
-                                        <a className="justify-center text-xl font-semibold">
+                                        <a className="justify-center text-lg font-semibold">
                                             {user?.displayName}
                                            
                                         </a>
                                     </li>
+                                    
                                     <li><NavLink to="/dashboard" className="text-base font-medium mb-3 p-2">Dashboard</NavLink></li>
                                      <button onClick={handleLogOut} className="btn btn-outline  text-md  font-medium">sign out </button> 
                                 </ul>
