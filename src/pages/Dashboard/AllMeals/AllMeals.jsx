@@ -5,8 +5,8 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllMeals = () => {
-    const [meals , refetch ] = useMeals()
-    const axiosSecure=useAxiosSecure()
+    const [meals, refetch] = useMeals()
+    const axiosSecure = useAxiosSecure()
 
     const handleDeleteMeal = (meal) => {
         Swal.fire({
@@ -70,11 +70,13 @@ const AllMeals = () => {
                                 <td>{meal.adminName}</td>
                                 <td>{meal.adminEmail}</td>
                                 <td>
-                                    <button
-                                        className="btn btn-ghost btn-md bg-orange-500">
-                                        <FaEdit className="text-white text-xl
+                                    <Link to={`/dashboard/updateMeal/${meal._id}`}>
+                                        <button
+                                            className="btn btn-ghost btn-md bg-orange-500">
+                                            <FaEdit className="text-white text-xl
                                         "></FaEdit>
-                                    </button>
+                                        </button>
+                                    </Link>
                                 </td>
                                 <td>
                                     <button

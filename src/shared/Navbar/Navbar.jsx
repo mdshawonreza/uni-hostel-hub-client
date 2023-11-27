@@ -60,7 +60,7 @@ const Navbar = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-2xl font-bold"> UniHostelHub</h2>
+                        <h2 className="text-2xl text-teal-600 font-bold"> UniHostelHub</h2>
                     </div>
 
                 </div>
