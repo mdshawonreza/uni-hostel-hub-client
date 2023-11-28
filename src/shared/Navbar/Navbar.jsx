@@ -35,7 +35,7 @@ const Navbar = () => {
         
         <li><NavLink to="/meals" className="text-base font-medium">Meals</NavLink></li>
         <li><NavLink to="/upcomingMeals" className="text-base font-medium">Upcoming Meals</NavLink></li>
-        <li><NavLink to="/" className="text-base font-medium"> <IoNotifications className="text-2xl "></IoNotifications> </NavLink></li>
+        <li><NavLink to="/notification" className="text-base font-medium"> <IoNotifications className="text-2xl "></IoNotifications> </NavLink></li>
         <li><NavLink to="/login" className="text-base font-medium">Join Us</NavLink></li>
         
 

@@ -16,6 +16,8 @@ import AddMeals from "../pages/Dashboard/AddMeals/AddMeals";
 import AdminRoute from "./AdminRoute";
 import AllMeals from "../pages/Dashboard/AllMeals/AllMeals";
 import UpdateMeal from "../pages/Dashboard/UpdateMeal/UpdateMeal";
+import UpcomingMeals from "../pages/UpcomingMeals/UpcomingMeals";
+import Notification from "../pages/Notification/Notification";
 
 const Router = createBrowserRouter([
     {
@@ -43,6 +45,14 @@ const Router = createBrowserRouter([
           path:'/details/:id',
           element:<PrivateRoute> <DetailsMeal></DetailsMeal> </PrivateRoute>,
           loader:({params})=>fetch (`http://localhost:5000/meals/${params.id}`)
+        },
+        {
+          path:'/upcomingMeals',
+          element:<UpcomingMeals></UpcomingMeals>
+        },
+        {
+          path:'/notification',
+          element:<Notification></Notification>
         }
       ]
     },
