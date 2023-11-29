@@ -174,7 +174,7 @@ const UpdateMeal = () => {
                 {/* form photo URl row */}
                 <div className="md:flex mb-6 ">
                     <div className="form-control w-full">
-                        <input  type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full max-w-xs" />
+                        <input  type="file" {...register("image")} className="file-input file-input-bordered w-full max-w-xs" />
                     </div>
 
 

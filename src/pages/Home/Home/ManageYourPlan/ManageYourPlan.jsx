@@ -6,7 +6,7 @@ import find4 from "../../../../assets/find4.png"
 const ManageYourPlan = () => {
     return (
         <div className="bg-base-200">
-            <h2 className='text-center text-3xl font-bold pt-16'>Feel comfort to share your plan  <span className='text-[#1b9991]'>& book hostel  </span></h2>
+            <h2 className='text-center text-3xl font-bold pt-8'>Feel comfort to share your plan  <span className='text-[#1b9991]'>& book hostel  </span></h2>
             <p className='text-center font-medium text-gray-500 mt-3'>Embrace ease, reveal your itinerary, and secure a cozy stay. Share your travel plan and book a hostel, creating comfort <br /> in every shared adventure and journey..</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-4 md:pb-14">
                 <div className="card   ">

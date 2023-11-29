@@ -7,7 +7,9 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-             <MealsCategories></MealsCategories>
+            <div className="  bg-base-200">
+            <MealsCategories></MealsCategories>
+            </div>
              <ManageYourPlan></ManageYourPlan>
             
         </div>

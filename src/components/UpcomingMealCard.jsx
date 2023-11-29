@@ -1,13 +1,11 @@
-import PropTypes from 'prop-types';
+import React from 'react';
+import { MdStarRate } from 'react-icons/md';
 import { Link } from 'react-router-dom';
-import { MdStarRate } from "react-icons/md";
 
-
-const MealCard = ({ item }) => {
+const UpcomingMealCard = ({item}) => {
     const { _id, image, mealTitle, rating, price } = item
     return (
-
-        <div key={_id} className=" relative flex flex-col text-gray-700 bg-white shadow-md w-[320px] rounded-xl bg-clip-border">
+        <div key={_id} className=" relative flex flex-col text-gray-700 bg-white shadow-md w-[340px] rounded-xl bg-clip-border">
             <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
                 <img
                     className="w-full h-full"
@@ -35,7 +33,7 @@ const MealCard = ({ item }) => {
 
             </div>
             <div className="p-6 pt-0">
-                <Link to={`/details/${_id}`}>
+                {/* <Link to={`/details/${_id}`}>
                     <button
                         className="select-none btn-block  rounded-lg bg-gradient-to-tr  py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-[#192a60]/20 transition-all hover:shadow-lg hover:bg-gradient-to-tr from-[#109e95] to-[#12a39f] focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="button"
@@ -43,14 +41,10 @@ const MealCard = ({ item }) => {
                     >
                         View Details
                     </button>
-                </Link>
+                </Link> */}
             </div>
         </div>
     );
 };
 
-export default MealCard;
-
-MealCard.propTypes = {
-    item: PropTypes.object
-}
+export default UpcomingMealCard;

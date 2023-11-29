@@ -25,6 +25,7 @@ const DetailsMeal = () => {
             const mealRequestItem = {
                 mealId: _id,
                 email: user.email,
+                name:user.displayName,
                 mealTitle,
                 image,
                 price

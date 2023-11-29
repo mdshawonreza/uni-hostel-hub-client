@@ -7,6 +7,7 @@ const Meals = () => {
     const [meals] = useMeals()
     const [allMeals, setAllMeals] = useState(meals)
     const [search, setSearch] = useState("")
+    const [category, setCategory] = useState("");
 
     return (
         <div>
@@ -24,14 +25,40 @@ const Meals = () => {
                     </div>
                 </div>
             </div>
+            <div className="flex gap-14 justify-center">
+                <select onChange={(e) => {
+                    setCategory(e.target.value);
+                }} className="select select-sm select-bordered w-full max-w-xs">
+                    <option disabled selected>Select by category</option>
+                    <option>Breakfast</option>
+                    <option>Lunch</option>
+                    <option>Dinner</option>
+                </select>
+                <div className="w-72 mb-4">
+                    <input
+                        // onChange={(e) => {
+                        //   setPrice(e.target.value);
+                        // }}
+                        placeholder="Select by price"
+                        className="input input-bordered input-sm w-full max-w-xs"
+                        type="number"
+                    />
+                </div>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[380px] md:max-w-3xl lg:max-w-6xl mx-auto my-16">
 
 
                 {
                     allMeals.filter((meal) => {
-                        return search.toLowerCase() === ""
+                        const isSearchValue = search.toLowerCase() === ""
                             ? meal
-                            : meal.mealTitle.toLowerCase().includes(search)
+                            : meal.mealTitle.toLowerCase().includes(search);
+
+
+                        const isCategoryValue = category.toLowerCase() === ""
+                            ? meal
+                            : meal.mealCategory.includes(category);
+                        return isSearchValue && isCategoryValue
                     }).map(meal => <SingleCard key={meal._id} meal={meal}></SingleCard>)
                 }
             </div>

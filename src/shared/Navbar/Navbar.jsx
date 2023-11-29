@@ -121,7 +121,7 @@ const Navbar = () => {
                                         </a>
                                     </li>
                                     
-                                    <li><NavLink to="/dashboard" className="text-base font-medium mb-3 p-2">Dashboard</NavLink></li>
+                                    <li><NavLink to="/dashboard/myProfile" className="text-base font-medium mb-3 p-2">Dashboard</NavLink></li>
                                      <button onClick={handleLogOut} className="btn btn-outline  text-md  font-medium">sign out </button> 
                                 </ul>
                             </div>

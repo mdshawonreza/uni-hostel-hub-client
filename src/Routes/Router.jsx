@@ -18,6 +18,11 @@ import AllMeals from "../pages/Dashboard/AllMeals/AllMeals";
 import UpdateMeal from "../pages/Dashboard/UpdateMeal/UpdateMeal";
 import UpcomingMeals from "../pages/UpcomingMeals/UpcomingMeals";
 import Notification from "../pages/Notification/Notification";
+import AdminProfile from "../pages/Dashboard/AdminProfile/AdminProfile";
+import AllReviews from "../pages/Dashboard/AllReviews/AllReviews";
+import ServeMeals from "../pages/Dashboard/ServeMeals/ServeMeals";
+import NextMeals from "../pages/Dashboard/NextMeals/NextMeals";
+import UpdateReview from "../components/UpdateReview";
 
 const Router = createBrowserRouter([
     {
@@ -72,8 +77,17 @@ const Router = createBrowserRouter([
           path:'myReviews',
           element:<MyReviews></MyReviews>
         },
+        {
+          path: 'updateReview/:id',
+          element:<UpdateReview></UpdateReview>,
+          loader:({params})=>fetch(`http://localhost:5000/reviews/${params.id}`)
+        },
 
         // admin routes
+        {
+          path:'adminProfile',
+          element:<AdminRoute><AdminProfile></AdminProfile></AdminRoute>
+        },
         {
           path:'users',
           element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
@@ -90,7 +104,20 @@ const Router = createBrowserRouter([
           path: 'updateMeal/:id',
           element:<AdminRoute><UpdateMeal></UpdateMeal></AdminRoute>,
           loader:({params})=>fetch(`http://localhost:5000/meals/${params.id}`)
+        },
+        {
+          path: 'allReviews',
+          element:<AdminRoute><AllReviews></AllReviews></AdminRoute>
+        },
+        {
+          path: 'serveMeals',
+          element:<AdminRoute><ServeMeals></ServeMeals></AdminRoute>
+        },
+        {
+          path:'nextMeals',
+          element:<AdminRoute><NextMeals></NextMeals></AdminRoute>
         }
+        
       ]
     }
   ]);
