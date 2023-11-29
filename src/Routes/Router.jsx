@@ -23,6 +23,7 @@ import AllReviews from "../pages/Dashboard/AllReviews/AllReviews";
 import ServeMeals from "../pages/Dashboard/ServeMeals/ServeMeals";
 import NextMeals from "../pages/Dashboard/NextMeals/NextMeals";
 import UpdateReview from "../components/UpdateReview";
+import Checkout from "../components/Checkout";
 
 const Router = createBrowserRouter([
     {
@@ -58,6 +59,12 @@ const Router = createBrowserRouter([
         {
           path:'/notification',
           element:<Notification></Notification>
+        },
+        {
+          path:'/memberships/:id',
+          element:<PrivateRoute><Checkout></Checkout></PrivateRoute>,
+          loader:({params})=>fetch (`http://localhost:5000/memberships/${params.id}`)
+
         }
       ]
     },
