@@ -7,7 +7,7 @@ const AdminProfile = () => {
 
     const [meals,setMeals]=useState([])
 
-    const url=`http://localhost:5000/adminMeals?email=${user.email}`
+    const url=`https://uni-hostel-hub-server.vercel.app/adminMeals?email=${user.email}`
 
     useEffect(()=>{
         fetch(url)

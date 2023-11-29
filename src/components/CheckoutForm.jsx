@@ -25,7 +25,7 @@ const CheckoutForm = ({ item }) => {
     // console.log(item)
     useEffect(() => {
         if (totalPrice > 0) {
-            axios.post('http://localhost:5000/create-payment-intent', { price: totalPrice })
+            axios.post('https://uni-hostel-hub-server.vercel.app/create-payment-intent', { price: totalPrice })
                 .then(res => {
                     console.log(res.data.clientSecret);
                     setClientSecret(res.data.clientSecret);
@@ -92,7 +92,7 @@ const CheckoutForm = ({ item }) => {
                     status: 'pending'
                 }
 
-                const res = await axios.post('http://localhost:5000/payments', payment);
+                const res = await axios.post('https://uni-hostel-hub-server.vercel.app/payments', payment);
                 console.log('payment saved', res.data);
 
                 if (res.data?.insertedId) {

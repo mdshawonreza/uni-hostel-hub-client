@@ -30,7 +30,7 @@ const DetailsMeal = () => {
                 image,
                 price
             }
-            axios.post('http://localhost:5000/mealRequests', mealRequestItem)
+            axios.post('https://uni-hostel-hub-server.vercel.app/mealRequests', mealRequestItem)
                 .then(res => {
                     console.log(res.data)
                     if (res.data.insertedId) {
@@ -79,7 +79,7 @@ const DetailsMeal = () => {
 
 
         }
-        axios.post('http://localhost:5000/reviews', reviewMassages)
+        axios.post('https://uni-hostel-hub-server.vercel.app/reviews', reviewMassages)
             .then(res => {
                 console.log(res.data)
                 if (res.data.insertedId) {

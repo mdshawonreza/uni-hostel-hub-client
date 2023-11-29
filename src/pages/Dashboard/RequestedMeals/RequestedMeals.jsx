@@ -6,7 +6,7 @@ const RequestedMeals = () => {
     const { user } = useContext(AuthContext)
     const [requestedMeals, setRequestedMeals] = useState([])
 
-    const url = `http://localhost:5000/requests?email=${user.email}`
+    const url = `https://uni-hostel-hub-server.vercel.app/requests?email=${user.email}`
 
     useEffect(() => {
         fetch(url)

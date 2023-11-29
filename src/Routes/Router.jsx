@@ -50,7 +50,7 @@ const Router = createBrowserRouter([
         {
           path:'/details/:id',
           element:<PrivateRoute> <DetailsMeal></DetailsMeal> </PrivateRoute>,
-          loader:({params})=>fetch (`http://localhost:5000/meals/${params.id}`)
+          loader:({params})=>fetch (`https://uni-hostel-hub-server.vercel.app/meals/${params.id}`)
         },
         {
           path:'/upcomingMeals',
@@ -63,7 +63,7 @@ const Router = createBrowserRouter([
         {
           path:'/memberships/:id',
           element:<PrivateRoute><Checkout></Checkout></PrivateRoute>,
-          loader:({params})=>fetch (`http://localhost:5000/memberships/${params.id}`)
+          loader:({params})=>fetch (`https://uni-hostel-hub-server.vercel.app/memberships/${params.id}`)
 
         }
       ]
@@ -87,7 +87,7 @@ const Router = createBrowserRouter([
         {
           path: 'updateReview/:id',
           element:<UpdateReview></UpdateReview>,
-          loader:({params})=>fetch(`http://localhost:5000/reviews/${params.id}`)
+          loader:({params})=>fetch(`https://uni-hostel-hub-server.vercel.app/reviews/${params.id}`)
         },
 
         // admin routes
@@ -110,7 +110,7 @@ const Router = createBrowserRouter([
         {
           path: 'updateMeal/:id',
           element:<AdminRoute><UpdateMeal></UpdateMeal></AdminRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/meals/${params.id}`)
+          loader:({params})=>fetch(`https://uni-hostel-hub-server.vercel.app/meals/${params.id}`)
         },
         {
           path: 'allReviews',
