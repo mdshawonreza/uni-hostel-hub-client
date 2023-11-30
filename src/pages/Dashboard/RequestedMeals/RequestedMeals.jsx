@@ -15,13 +15,13 @@ const RequestedMeals = () => {
     }, [url])
 
     return (
-        <div className="p-8">
+        <div className="p-0 md:p-8">
             <div className="flex justify-evenly my-4">
-                <h2 className="text-3xl">My Requested Meals</h2>
+                <h2 className="text-md md:text-3xl font-semibold">My Requested Meals</h2>
                 {/* <h2 className="text-3xl">Total requested Meals : {requestedMeals.length}</h2> */}
 
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto max-w-[380px] md:max-w-[650px] lg:max-w-[980px]  mx-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}
                     <thead>

@@ -32,13 +32,13 @@ const ManageUsers = () => {
             })
     }
     return (
-        <div className="p-8">
+        <div className="p-0 md:p-8">
             <div className="flex justify-evenly my-4">
-                <h2 className="text-3xl">All users</h2>
-                <h2 className="text-3xl">Total users {users.length}:</h2>
+                <h2 className="text-md md:text-3xl font-semibold">All users</h2>
+                <h2 className="text-md md:text-3xl font-semibold">Total users {users.length}:</h2>
 
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto max-w-[380px] md:max-w-[650px] lg:max-w-[980px]  mx-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}
                     <thead>
@@ -52,12 +52,12 @@ const ManageUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user, index) => <tr key={user._id}>
+                            users.map ((user, index) => <tr key={user._id}>
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    {user.role==='admin'? "Admin" : <button onClick={() => handleMakeAdmin(user)} className="btn bg-orange-500 btn-md"><FaUsers className="text-white text-2xl"></FaUsers></button>}
+                                    {user.role==='admin'? "Admin" : < button onClick={() => handleMakeAdmin(user)} className="btn bg-orange-500 btn-md"><FaUsers className="text-white text-lg md:text-2xl"></FaUsers></button>}
                                 </td>
                                 <td>Gold</td>
                             </tr>)
@@ -71,6 +71,6 @@ const ManageUsers = () => {
 
         </div>
     );
-};
+} ;
 
 export default ManageUsers;

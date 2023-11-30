@@ -22,6 +22,11 @@ const Membership = () => {
     })
     return (
         <div className="max-w-[380px] md:max-w-3xl lg:max-w-5xl mx-auto py-10">
+
+            <div className="text-center mb-8">
+                <h2 className='text-center text-3xl font-bold pt-8'>Purchase Your<span className='text-[#1b9991]'> Membership  </span></h2>
+                <p className='text-center font-medium text-gray-500 mt-3'>Unlock exclusive benefits and privileges when you purchase your membership today <br /> Elevate your experience now!</p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {
                     memberships.map(item => <div key={item.type}>

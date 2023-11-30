@@ -101,7 +101,7 @@ const AddMeals = () => {
 
 
     return (
-        <div className="bg-[#b0b0ae] max-w-6xl mx-auto p-8 md:p-12">
+        <div className="bg-[#b0b0ae] max-w-6xl  mx-auto p-8 md:p-12 ">
             <h2 className="text-center text-3xl font-bold mb-8" >Add an Meal</h2>
             <form >
                 {/* form Meal title and reviews row */}
@@ -219,8 +219,8 @@ const AddMeals = () => {
                 </div>
                 {/* <input type="submit" value="Add a meal" className="btn text-white btn-block bg-orange-600 hover:bg-orange-700" /> */}
                 <div className="flex">
-                <button onClick={handleSubmit1(onSubmit1)} className="btn flex-1 text-white text-lg btn-block bg-[#109e95] hover:bg-[#0a9b91] mb-2">Add  meal</button>
-                <button  className="btn flex-1 text-lg text-white btn-block bg-[#109e95] hover:bg-[#0a9b91]">upcoming  meal</button>
+                <button onClick={handleSubmit1(onSubmit1)} className="btn flex-1 text-white text-sm md:text-lg btn-block bg-[#109e95] hover:bg-[#0a9b91] mb-2">Add  meal</button>
+                <button  className="btn flex-1 text-sm md:text-lg text-white btn-block bg-[#109e95] hover:bg-[#0a9b91]">upcoming  meal</button>
                 </div>
             </form>
         </div>

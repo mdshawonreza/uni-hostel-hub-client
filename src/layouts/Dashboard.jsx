@@ -10,59 +10,65 @@ import { MdRateReview } from "react-icons/md";
 import { TbReservedLine } from "react-icons/tb";
 import { MdUpcoming } from "react-icons/md";
 import useAdmin from '../hooks/useAdmin';
-import { RiProfileLine } from "react-icons/ri";
+import logo from '../assets/logo2-removebg-preview.png'
 
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin()
     console.log(isAdmin)
     return (
-        <div className='flex mx-w-[380px] md:max-w-3xl lg:max-w-6xl mx-auto '>
-            <div className='w-64 min-h-screen bg-[#109e95]'>
+        <div className='flex flex-col md:flex-row  mx-auto max-w-[380px] md:max-w-screen-2xl  '>
+
+            <div className=' w-48 md:w-48 lg:w-64 min-h-min md:min-h-screen bg-[#109e95]'>
+                <div className='flex justify-center my-3 gap-4 items-center'>
+                    <img className='w-16' src={logo} alt="" />
+                    <h2 className='text-xl text-white font-semibold'>UniHostelHub</h2>
+                </div>
+                <div className='border-b-2'></div>
                 <ul className='menu p-4'>
                     {
                         isAdmin ? <>
 
                             <li>
-                                <NavLink to="/dashboard/adminProfile" className="text-base text-white font-medium">
+                                <NavLink to="/dashboard/adminProfile" className="text-sm md:text-base text-white font-medium">
                                     <CgProfile></CgProfile>
                                     Admin Profile
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/users" className="text-base text-white font-medium">
+                                <NavLink to="/dashboard/users" className="text-sm md:text-base text-white font-medium">
                                     <FaUsers></FaUsers>
                                     Manage Users
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/addMeals" className="text-base text-white font-medium">
-                                <IoIosAddCircle></IoIosAddCircle>
+                                <NavLink to="/dashboard/addMeals" className="text-sm md:text-base text-white font-medium">
+                                    <IoIosAddCircle></IoIosAddCircle>
                                     Add meal
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/allMeals" className="text-base text-white font-medium">
-                                <GiMeal></GiMeal>
+                                <NavLink to="/dashboard/allMeals" className="text-sm md:text-base text-white font-medium">
+                                    <GiMeal></GiMeal>
                                     All meals
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/allReviews" className="text-base text-white font-medium">
-                                <MdRateReview></MdRateReview>
+                                <NavLink to="/dashboard/allReviews" className="text-sm md:text-base text-white font-medium">
+                                    <MdRateReview></MdRateReview>
                                     All reviews
 
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/serveMeals" className="text-base text-white font-medium">
-                                <TbReservedLine></TbReservedLine>
+                                <NavLink to="/dashboard/serveMeals" className="text-sm md:text-base text-white font-medium">
+                                    <TbReservedLine></TbReservedLine>
                                     Serve meals
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/nextMeals" className="text-base text-white font-medium">
-                                <MdUpcoming></MdUpcoming>
+                                <NavLink to="/dashboard/nextMeals" className="text-sm md:text-base text-white font-medium">
+                                    <MdUpcoming></MdUpcoming>
                                     Upcoming meals
                                 </NavLink>
                             </li>
@@ -77,13 +83,13 @@ const Dashboard = () => {
                                     </NavLink>
                                 </li> */}
                                 <li>
-                                    <NavLink to="/dashboard/requestedMeals" className="text-base text-white font-medium">
+                                    <NavLink to="/dashboard/requestedMeals" className="text-sm md:text-base text-white font-medium">
                                         <VscGitPullRequestGoToChanges></VscGitPullRequestGoToChanges>
                                         Requested Meals
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/myReviews" className="text-base text-white font-medium">
+                                    <NavLink to="/dashboard/myReviews" className="text-sm md:text-base text-white font-medium">
                                         <MdPreview></MdPreview>
                                         My Reviews
                                     </NavLink>
@@ -95,20 +101,20 @@ const Dashboard = () => {
                     <div className="divider "></div>
 
                     <li>
-                        <NavLink to="/" className="text-base text-white font-medium">
+                        <NavLink to="/" className="text-sm md:text-base text-white font-medium">
                             <FaHome></FaHome>
                             Home
                         </NavLink>
                     </li>
 
                     <li>
-                        <NavLink to="/dashboard/myProfile" className="text-base text-white font-medium">
-                        <CgProfile></CgProfile>
+                        <NavLink to="/dashboard/myProfile" className="text-sm md:text-base text-white font-medium">
+                            <CgProfile></CgProfile>
                             My profile
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/meals" className="text-base text-white font-medium">
+                        <NavLink to="/meals" className="text-sm md:text-base text-white font-medium">
                             <FaSearch></FaSearch>
                             Meals
                         </NavLink>
@@ -116,7 +122,7 @@ const Dashboard = () => {
 
                 </ul>
             </div>
-            <div className='flex-1'>
+            <div className=' flex-1'>
                 <Outlet></Outlet>
             </div>
         </div>

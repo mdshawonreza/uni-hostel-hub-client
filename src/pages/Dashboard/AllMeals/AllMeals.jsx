@@ -38,13 +38,13 @@ const AllMeals = () => {
         });
     }
     return (
-        <div className="p-8">
+        <div className="p-0 md:p-4">
             <div className="flex justify-evenly my-4">
-                <h2 className="text-3xl">All Meals</h2>
-                <h2 className="text-3xl">Total Meals {meals.length}:</h2>
+                <h2 className="text-md md:text-3xl font-semibold">All Meals</h2>
+                <h2 className="text-md md:text-3xl font-semibold">Total Meals {meals.length}:</h2>
 
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto max-w-[380px] md:max-w-[650px] lg:max-w-[980px]  mx-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}
                     <thead>
@@ -72,8 +72,8 @@ const AllMeals = () => {
                                 <td>
                                     <Link to={`/dashboard/updateMeal/${meal._id}`}>
                                         <button
-                                            className="btn btn-ghost btn-md bg-orange-500">
-                                            <FaEdit className="text-white text-xl
+                                            className="btn btn-ghost btn-sm bg-orange-500">
+                                            <FaEdit className="text-white text-lg
                                         "></FaEdit>
                                         </button>
                                     </Link>
@@ -81,8 +81,8 @@ const AllMeals = () => {
                                 <td>
                                     <button
                                         onClick={() => handleDeleteMeal(meal)}
-                                        className="btn btn-ghost btn-md">
-                                        <FaTrashAlt className="text-red-600 text-xl"></FaTrashAlt>
+                                        className="btn btn-ghost btn-sm">
+                                        <FaTrashAlt className="text-red-600 text-lg"></FaTrashAlt>
                                     </button>
                                 </td>
                                 <td>

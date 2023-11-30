@@ -103,10 +103,10 @@ const DetailsMeal = () => {
     return (
         <div className="bg-base-200  py-8">
             <div className=" flex justify-center items-center " >
-                <div className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md w-[50%]">
+                <div className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md w-[95%] md:w-[50%]">
                     <div className=" flex justify-center relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none">
                         <img
-                            className="w-full h-[60vh] rounded-t-lg"
+                            className="w-full h-[30vh] md:h-[60vh] rounded-t-lg"
                             src={image}
                             alt="ui/ux review check"
                         />
