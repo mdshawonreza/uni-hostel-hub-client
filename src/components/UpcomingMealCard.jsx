@@ -1,9 +1,18 @@
 import React from 'react';
+import { BiSolidLike } from 'react-icons/bi';
 import { MdStarRate } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+// import useAxiosSecure from '../hooks/useAxiosSecure';
 
-const UpcomingMealCard = ({item}) => {
-    const { _id, image, mealTitle, rating, price } = item
+
+const UpcomingMealCard = ({ item }) => {
+    // const axiosSecure=useAxiosSecure()
+    const { _id, image, mealTitle, rating, price ,likes} = item
+
+    const handleLike=()=>{
+        //  axiosSecure.patch(`/upcomingMeals/${_id}`, _id)
+         console.log('ok')
+    }
     return (
         <div key={_id} className=" relative flex flex-col text-gray-700 bg-white shadow-md w-[340px] rounded-xl bg-clip-border">
             <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
@@ -27,9 +36,18 @@ const UpcomingMealCard = ({item}) => {
                         </p>
                     </div>
                 </div>
-                <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-                    <span className="text-black font-semibold">price:</span>$ <span className="font-bold "> {price}</span>
-                </p>
+                <div className='flex justify-between'>
+                    <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
+                        <span className="text-black font-semibold">price:</span>$ <span className="font-bold "> {price}</span>
+                    </p>
+                    
+                    <div className='flex items-center gap-2'>
+                        
+                    <button onClick={handleLike}>  <BiSolidLike className="text-2xl"></BiSolidLike> </button>
+                    <p className='text-lg'>{likes}</p>
+                    </div>
+                   
+                </div>
 
             </div>
             <div className="p-6 pt-0">

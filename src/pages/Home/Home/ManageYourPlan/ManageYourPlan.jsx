@@ -2,6 +2,7 @@ import find1 from "../../../../assets/find1.png"
 import find2 from "../../../../assets/find2.png"
 import find3 from "../../../../assets/find3.png"
 import find4 from "../../../../assets/find4.png"
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const ManageYourPlan = () => {
     return (
@@ -79,6 +80,11 @@ const ManageYourPlan = () => {
                     </div>
                 </div>
             </div>
+            <MessengerCustomerChat
+                pageId="108480261351190"
+                appId="1498133390920760"
+                
+            />,
 
         </div>
     );

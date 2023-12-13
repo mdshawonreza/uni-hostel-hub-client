@@ -112,6 +112,13 @@ const CheckoutForm = ({ item }) => {
     return (
         <div className="bg-base-200 w-full h-full">
             <h2 className="text-center text-3xl pt-16 font-bold"> Payment For purchase {item.type}</h2>
+            <div className="max-w-[300px] mx-auto">
+                <ul className="font-semibold my-2">
+                    <li>1.{item.benefits01}</li>
+                    <li>2.{item.benefits02}</li>
+                    <li>3.{item.benefits03}</li>
+                </ul>
+            </div>
             <h2 className="text-center text-xl py-3 font-bold"> Payment Amount: $ <span className="text-orange-500">{item.price}</span></h2>
             <div className="border-orange-600 mt-3 border max-w-md mx-auto"></div>
             <div className="flex justify-center  ">
@@ -144,7 +151,7 @@ const CheckoutForm = ({ item }) => {
                 </div>
             </div>
         </div>
-       
+
     );
 };
 

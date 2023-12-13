@@ -11,12 +11,12 @@ const  image_hosting_api=`https://api.imgbb.com/1/upload?key=${image_hosting_key
 
 const AddMeals = () => {
     const {user}=useContext(AuthContext)
-    // const { register, handleSubmit,reset, formState: { errors } } = useForm();
-    const { register , reset, handleSubmit:handleSubmit1 } =useForm()
-    // const {register:register2, handleSubmit:handleSubmit2}=useForm()
+    
+    const { register , reset, handleSubmit } =useForm()
+    
     const axiosPublic=useAxiosPublic()
     const axiosSecure=useAxiosSecure()
-    const onSubmit1 =  async(data) => {
+    const onSubmit =  async(data) => {
         console.log(data)
         const imageFile = { image: data.image[0] }
         const res = await axiosPublic.post(image_hosting_api, imageFile, {
@@ -44,7 +44,7 @@ const AddMeals = () => {
 
             const mealRes=await axiosSecure.post('/meals',newMeal)
             if(mealRes.data.insertedId){
-                // show success popup
+                
                 reset();
                 Swal.fire({
                     position: "top-end",
@@ -58,52 +58,54 @@ const AddMeals = () => {
         console.log( 'with image url', res.data);
     }
 
-    // const onSubmit2 = async(data) => {
-    //     console.log(data)
-    //     const imageFile = { image: data.image[0] }
-    //     const res = await axiosPublic.post(image_hosting_api, imageFile, {
-    //         headers: {
-    //             'content-type': 'multipart/form-data'
-    //         }
-    //     });
-    //     if (res.data.success) {
-    //         const upcomingMeal={
-    //             mealTitle : data.mealTitle,
-    //             reviews:data.reviews,
-    //             mealCategory:data.mealCategory,
-    //             price:parseFloat(data.price),
-    //             description:data.description,
-    //             rating:data.rating,
-    //             date:data.date,
-    //             likes:data.likes,
-    //             ingredients:data.ingredients,
-    //             image: res.data.data.display_url,
-    //             adminName:user.displayName,
-    //             adminEmail:user.email
     
-    //         }
 
-    //         const mealRes=await axiosSecure.post('/upcomingMeals',upcomingMeal)
-    //         if(mealRes.data.insertedId){
-    //             // show success popup
-    //             reset();
-    //             Swal.fire({
-    //                 position: "top-end",
-    //                 icon: "success",
-    //                 title: `meal is added to the upcoming meals.`,
-    //                 showConfirmButton: false,
-    //                 timer: 1500
-    //               });
-    //         }
-    //     }
-    // }
+    const onSubmitUpcoming = async(data) => {
+        console.log(data)
+        const imageFile = { image: data.image[0] }
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        });
+        if (res.data.success) {
+            const upcomingMeal={
+                mealTitle : data.mealTitle,
+                reviews:data.reviews,
+                mealCategory:data.mealCategory,
+                price:parseFloat(data.price),
+                description:data.description,
+                rating:data.rating,
+                date:data.date,
+                likes:data.likes,
+                ingredients:data.ingredients,
+                image: res.data.data.display_url,
+                adminName:user.displayName,
+                adminEmail:user.email
+    
+            }
+
+            const mealRes=await axiosSecure.post('/upcomingMeals',upcomingMeal)
+            if(mealRes.data.insertedId){
+                // show success popup
+                reset();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `meal is added to the upcoming meals.`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        }
+    }
 
 
 
     return (
         <div className="bg-[#b0b0ae] max-w-6xl  mx-auto p-8 md:p-12 ">
             <h2 className="text-center text-3xl font-bold mb-8" >Add an Meal</h2>
-            <form >
+            <form onSubmit={handleSubmit(onSubmit)} >
                 {/* form Meal title and reviews row */}
                 <div className="md:flex mb-6 ">
                     <div className="form-control  md:w-1/2">
@@ -219,9 +221,12 @@ const AddMeals = () => {
                 </div>
                 {/* <input type="submit" value="Add a meal" className="btn text-white btn-block bg-orange-600 hover:bg-orange-700" /> */}
                 <div className="flex">
-                <button onClick={handleSubmit1(onSubmit1)} className="btn flex-1 text-white text-sm md:text-lg btn-block bg-[#109e95] hover:bg-[#0a9b91] mb-2">Add  meal</button>
-                <button  className="btn flex-1 text-sm md:text-lg text-white btn-block bg-[#109e95] hover:bg-[#0a9b91]">upcoming  meal</button>
+                <button type="submit"  className="btn flex-1 text-white text-sm md:text-lg btn-block bg-[#109e95] hover:bg-[#0a9b91] mb-2">Add  meal</button>
+                
                 </div>
+            </form>
+            <form onSubmit={handleSubmit(onSubmitUpcoming)}>
+            <button  className="btn flex-1 text-sm md:text-lg text-white btn-block bg-[#109e95] hover:bg-[#0a9b91]">upcoming  meal</button>
             </form>
         </div>
     );

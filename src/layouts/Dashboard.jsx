@@ -20,9 +20,9 @@ const Dashboard = () => {
         <div className='flex flex-col md:flex-row  mx-auto max-w-[380px] md:max-w-screen-2xl  '>
 
             <div className=' w-48 md:w-48 lg:w-64 min-h-min md:min-h-screen bg-[#109e95]'>
-                <div className='flex justify-center my-3 gap-4 items-center'>
-                    <img className='w-16' src={logo} alt="" />
-                    <h2 className='text-xl text-white font-semibold'>UniHostelHub</h2>
+                <div className='flex justify-center my-3 gap-1 items-center'>
+                    <img className='w-8 md:w-10 lg:w-14' src={logo} alt="" />
+                    <h2 className='text-md md:text-lg lg:text-xl text-white font-semibold'>UniHostelHub</h2>
                 </div>
                 <div className='border-b-2'></div>
                 <ul className='menu p-4'>

@@ -25,7 +25,7 @@ const Meals = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex gap-14 justify-center">
+            <div className="flex gap-1 md:gap-14 justify-center mx-3">
                 <select onChange={(e) => {
                     setCategory(e.target.value);
                 }} className="select select-sm select-bordered w-full max-w-xs">
